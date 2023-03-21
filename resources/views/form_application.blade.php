@@ -1,106 +1,98 @@
 <style>
   form {
-    max-width: 500px;
-    margin: auto;
+    max-width: 600px;
+    margin: 0 auto;
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
     padding: 20px;
-    background-color: #f5f5f5;
-    border-radius: 5px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
   }
 
-  form label {
-    display: block;
+  label {
     font-weight: bold;
+    display: block;
     margin-bottom: 5px;
   }
 
-  form input[type="text"],
-  form input[type="email"],
-  form input[type="password"],
-  form textarea {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 15px;
+  input[type="text"],
+  input[type="email"],
+  textarea {
+    border-radius: 5px;
     border: none;
-    border-radius: 3px;
-    background-color: #fff;
-    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    width: 100%;
+    margin-bottom: 20px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
   }
 
-  form input[type="submit"] {
-    background-color: #4CAF50;
+  input[type="submit"] {
+    background-color: #007bff;
     color: #fff;
     border: none;
     padding: 10px 20px;
-    border-radius: 3px;
+    border-radius: 5px;
     cursor: pointer;
-    font-size: 16px;
   }
 
-  form input[type="submit"]:hover {
-    background-color: #3e8e41;
+  input[type="submit"]:hover {
+    background-color: #0069d9;
   }
 
-  .title {
-    display: flex;
-    justify-content: center;
+  input[type="submit"]:active {
+    background-color: #005cbf;
   }
 
-  a {
-    display: inline-block;
-    padding: 10px;
-    background-color: #4CAF50;
-    color: #fff;
-    border-radius: 3px;
-    text-decoration: none;
-    font-size: 16px;
-    transition: background-color 0.2s ease;
+  textarea {
+    height: 150px;
   }
 
-  a:hover {
-    background-color: #3e8e41;
-  }
-
-  a:active {
-    background-color: #1e461d;
-  }
-
-  .link-container {
-    display: flex;
-    justify-content: center;
-    margin-top: 20px;
+  input[type="text"]:focus,
+  input[type="email"]:focus,
+  textarea:focus {
+    outline: none;
+    border: 1px solid #007bff;
   }
 </style>
+
+<h1>{{$event->title}}</h1>
+<p>{{$event->description}}</p>
+<p>{{$event->date}}</p>
+
+
 <div class="title">
   <h1>Anmeldung</h1>
 </div>
 
 <form method="POST" action="">
-  @csrf
-  <div>
-    <label for="answer">Dabei?</label>
-    <input name="answer" value="yes" id="answer" type="radio"> Ja
-    <input name="answer" value="No" id="answer" type="radio">Nein
-  </div>
-  <div>
-    <label for="email">Email:</label>
-    <input type="email" id="email" name="email" required>
-  </div>
+  <form method="POST" action="/">
+    @csrf
+    <div>
+      <label for="answer">Dabei?</label>
+      <input name="answer" value="yes" id="answer" type="radio"> Ja
+      <input name="answer" value="No" id="answer" type="radio">Nein
+    </div>
+    <div>
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" required>
+    </div>
 
-  <div>
-    <label for="lastname">Name:</label>
-    <input type="text" id="lastname" name="lastname" required>
-  </div>
+    <div>
+      <label for="lastname">Name:</label>
+      <input type="text" id="lastname" name="lastname" required>
+    </div>
 
-  <div>
-    <label for="firstname">Vorname:</label>
-    <input type="text" id="firstname" name="firstname" required>
-  </div>
+    <div>
+      <label for="firstname">Vorname:</label>
+      <input type="text" id="firstname" name="firstname" required>
+    </div>
 
-  <div>
-    <input type="submit" value="Anmelden">
-  </div>
-</form>
+    <div>
+      <input type="submit" value="Anmelden">
+    </div>
+  </form>
 
-<div class="link-container">
-  <a href="/form_application/applications">Anmeldungen anzeigen</a>
-</div>
+  <div class="link-container">
+    <a href="/form_application/applications">Anmeldungen anzeigen</a>
+  </div>
