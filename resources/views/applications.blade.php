@@ -61,7 +61,7 @@
 
     </ul>
 
-    <small>Anzahl der Personen welche nicht kommen: {{$declinedapplications}}</small>
+    <small>Anzahl der Personen welche nicht kommen: {{$declinedApplications}}</small>
 
 </body>
 

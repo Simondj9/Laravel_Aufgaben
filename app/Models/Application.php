@@ -10,4 +10,8 @@ class Application extends Model
     use HasFactory;
 
     public $table = 'applications';
+
+    public function event(){
+        return $this->belongsTo(Event::class);
+    }
 }

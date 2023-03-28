@@ -65,8 +65,8 @@
   <h1>Anmeldung</h1>
 </div>
 
-<form method="POST" action="">
-  <form method="POST" action="/">
+
+  <form method="POST" action="/applications/{{$event->id}}">
     @csrf
     <div>
       <label for="answer">Dabei?</label>
@@ -94,5 +94,5 @@
   </form>
 
   <div class="link-container">
-    <a href="/form_application/applications">Anmeldungen anzeigen</a>
+    <a href="/form_application/applications/{{$event->id}}">Anmeldungen anzeigen</a>
   </div>

@@ -8,18 +8,18 @@ use App\Models\Event;
 
 class EventController extends Controller
 {
-
-
- public function show($id){
+    public function show($id)
+    {
         $event = Event::findOrFail($id);
-
         return view('form_application', [
             'event' => $event
-            ]);
+        ]);
     }
 
-    public function list(){
+    public function list()
+    {
         $events = Event::all();
+        $events = Event::with('applications')->get();
         return view('events', [
             'events' => $events
         ]);
