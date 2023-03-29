@@ -54,45 +54,67 @@
     outline: none;
     border: 1px solid #007bff;
   }
+
+  .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5px;
+  }
+
+  .box {
+    background-color: #f5f5f5;
+    padding: 20px;
+  }
 </style>
 
-<h1>{{$event->title}}</h1>
-<p>{{$event->description}}</p>
-<p>{{$event->date}}</p>
+@extends('layouts.master')
+@section('title', 'Anmeldung Event')
+@section('content')
 
+
+<div class="container">
+  <div class="box">
+    <h1>{{$event->title}}</h1>
+    <p>{{$event->description}}</p>
+    <p>{{$event->date}}</p>
+  </div>
+</div>
 
 <div class="title">
   <h1>Anmeldung</h1>
 </div>
 
 
-  <form method="POST" action="/applications/{{$event->id}}">
-    @csrf
-    <div>
-      <label for="answer">Dabei?</label>
-      <input name="answer" value="yes" id="answer" type="radio"> Ja
-      <input name="answer" value="No" id="answer" type="radio">Nein
-    </div>
-    <div>
-      <label for="email">Email:</label>
-      <input type="email" id="email" name="email" required>
-    </div>
-
-    <div>
-      <label for="lastname">Name:</label>
-      <input type="text" id="lastname" name="lastname" required>
-    </div>
-
-    <div>
-      <label for="firstname">Vorname:</label>
-      <input type="text" id="firstname" name="firstname" required>
-    </div>
-
-    <div>
-      <input type="submit" value="Anmelden">
-    </div>
-  </form>
-
-  <div class="link-container">
-    <a href="/form_application/applications/{{$event->id}}">Anmeldungen anzeigen</a>
+<form method="POST" action="/applications/{{$event->id}}">
+  @csrf
+  <div>
+    <label for="answer">Dabei?</label>
+    <input name="answer" value="yes" id="answer" type="radio"> Ja
+    <input name="answer" value="No" id="answer" type="radio">Nein
   </div>
+  <div>
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" required>
+  </div>
+
+  <div>
+    <label for="lastname">Name:</label>
+    <input type="text" id="lastname" name="lastname" required>
+  </div>
+
+  <div>
+    <label for="firstname">Vorname:</label>
+    <input type="text" id="firstname" name="firstname" required>
+  </div>
+
+  <div>
+    <input type="submit" value="Anmelden">
+  </div>
+</form>
+
+<div class="link-container">
+<a href="/applications/{{$event->id}}" class="applicate">Anmeldungen anzeigen</a>
+</div>
+
+@endsection

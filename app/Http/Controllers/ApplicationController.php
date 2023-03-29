@@ -41,7 +41,7 @@ class ApplicationController extends Controller
         $event = Event::findOrFail($id);
 
         $applications = $event->applications->where('answer', 'yes');
-        $declinedApplications = $event->applications->where('answer', 'no')->count();
+        $declinedApplications = $event->applications->where('answer', 'No')->count();
 
         return view(
             'applications',
